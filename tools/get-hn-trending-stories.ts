@@ -1,4 +1,4 @@
-import { Module } from "../types.ts";
+import type { Module } from "../types.ts";
 import { $number, $object, $optional, $string } from "@showichiro/validators";
 import { fetcher } from "@showichiro/fetcher";
 
@@ -46,7 +46,7 @@ async function fetchComments(storyId: string): Promise<Comment[]> {
       };
       const comments: Comment[] = [];
       traverse(data);
-      return comments;
+      return comments.slice(0, 3);
     } else {
       console.error("Failed to fetch comments:", response.error);
       return [];
@@ -127,8 +127,8 @@ export const GetHnTrendingStoriesModule: Module = {
 
           return {
             content: stories.map((story) => ({
-              type: "json",
-              json: story,
+              type: "text",
+              text: JSON.stringify(story),
             })),
             isError: false,
           };

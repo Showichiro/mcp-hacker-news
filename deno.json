@@ -8,6 +8,6 @@
     "@std/assert": "jsr:@std/assert@1"
   },
   "name": "@showichiro/mcp-hacker-news",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": "./server.ts"
 }
