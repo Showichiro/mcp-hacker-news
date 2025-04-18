@@ -3,6 +3,7 @@
     "dev": "deno run --watch main.ts"
   },
   "imports": {
+    "@showichiro/fetcher": "jsr:@showichiro/fetcher@^0.1.0",
     "@showichiro/validators": "jsr:@showichiro/validators@^0.1.0",
     "@std/assert": "jsr:@std/assert@1"
   }

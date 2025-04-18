@@ -32,8 +32,8 @@ relevance, points, and number of comments.
 
 **4. Output:**
 
-The tool will return a JSON object containing an array of trending stories. Each
-story object will include the following fields:
+The tool will return a JSON object with a `content` field, which is an array of
+trending stories. Each story object will include the following fields:
 
 - `title`: The title of the story.
 - `url`: The URL of the story.
@@ -41,8 +41,11 @@ story object will include the following fields:
 - `points`: The number of points the story has.
 - `num_comments`: The number of comments the story has.
 - `comments`: An array of comment objects, each containing the comment text and
-  author.
+  author. The comments are fetched recursively from the Hacker News API.
 - `objectID`: The unique ID of the story.
+
+The tool also returns an `isError` field, which is a boolean indicating whether
+an error occurred.
 
 **5. Implementation Details:**
 
@@ -56,15 +59,18 @@ story object will include the following fields:
 - For each story, the tool will fetch the comment content from the Hacker News
   API using the story's `objectID`. The comment content will include the comment
   text and author. The API endpoint for retrieving comments is
-  `https://hn.algolia.com/api/v1/search?tags=comment&story_id=記事ID&hitsPerPage=20`,
-  where `記事ID` is the `objectID` of the story.
+  `https://hn.algolia.com/api/v1/items/${storyId}`, where `storyId` is the
+  `objectID` of the story. The comments are fetched recursively from the
+  `children` field of the API response.
 - The tool will handle potential errors, such as network errors or invalid API
   responses.
 
 **6. Error Handling:**
 
-- If the API request fails, the tool will return an error message.
-- If the API response is invalid, the tool will return an error message.
+- If the API request fails, the tool will return an object with `isError` set to
+  `true` and a descriptive error message in the `content` array.
+- If the API response is invalid, the tool will return an object with `isError`
+  set to `true` and a descriptive error message in the `content` array.
 
 **7. Example Usage:**
 
