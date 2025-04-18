@@ -1,13 +1,14 @@
 import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk/server/stdio.js";
 import { createServer } from "./server-factory.ts";
-import { GetStringLengthModule } from "./tools/get-string-length.ts";
-import { GenerateUUIDsModule } from "./tools/generate-uuids.ts";
+import { GetHnTrendingStoriesModule } from "./tools/get-hn-trending-stories.ts";
 
 if (import.meta.main) {
   const server = createServer({
     serverName: "local",
     version: "0.1.0",
-    modules: [GetStringLengthModule, GenerateUUIDsModule],
+    modules: [
+      GetHnTrendingStoriesModule,
+    ],
   });
 
   // シグナルハンドリング

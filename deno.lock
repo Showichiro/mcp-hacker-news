@@ -1,12 +1,23 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@showichiro/fetcher@0.1": "0.1.0",
+    "jsr:@showichiro/result@~0.1.2": "0.1.2",
     "jsr:@showichiro/validators@0.1": "0.1.0",
     "jsr:@std/assert@1": "1.0.12",
     "jsr:@std/internal@^1.0.6": "1.0.6",
     "npm:@modelcontextprotocol/sdk@*": "1.9.0_express@5.1.0_zod@3.24.2"
   },
   "jsr": {
+    "@showichiro/fetcher@0.1.0": {
+      "integrity": "a1042f89718e2289c84d8ad9fd93d204536d8dc068b06fdd611599eaf5ff2b5e",
+      "dependencies": [
+        "jsr:@showichiro/result"
+      ]
+    },
+    "@showichiro/result@0.1.2": {
+      "integrity": "54d987084bafe3bd0cbcff11cfc583ceb3b79e8de709eb0b863108595bb1dbab"
+    },
     "@showichiro/validators@0.1.0": {
       "integrity": "6454b2b7fc9e18194b4a02351c2fc5b438d300c1431c2b67f592a2bbc827bf77"
     },
@@ -483,6 +494,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@showichiro/fetcher@0.1",
       "jsr:@showichiro/validators@0.1",
       "jsr:@std/assert@1"
     ]
