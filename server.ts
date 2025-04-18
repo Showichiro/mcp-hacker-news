@@ -1,4 +1,4 @@
-import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk/server/stdio.js";
+import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk@1.10.0/server/stdio.js";
 import { createServer } from "./server-factory.ts";
 import { GetHnTrendingStoriesModule } from "./tools/get-hn-trending-stories.ts";
 

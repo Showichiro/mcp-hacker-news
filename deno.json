@@ -6,5 +6,8 @@
     "@showichiro/fetcher": "jsr:@showichiro/fetcher@^0.1.0",
     "@showichiro/validators": "jsr:@showichiro/validators@^0.1.0",
     "@std/assert": "jsr:@std/assert@1"
-  }
+  },
+  "name": "@showichiro/mcp-hacker-news",
+  "version": "0.0.1",
+  "exports": "./server.ts"
 }
